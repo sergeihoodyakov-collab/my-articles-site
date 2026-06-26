@@ -1,0 +1,21 @@
+backend:
+  name: git-gateway
+  branch: main
+
+locale: ru
+media_folder: "src/media"
+public_folder: "/media"
+
+collections:
+  - name: "articles"
+    label: "Статьи"
+    folder: "src/posts"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Макет", name: "layout", widget: "hidden", default: "article.njk" }
+      - { label: "Заголовок", name: "title", widget: "string" }
+      - { label: "Краткое описание", name: "description", widget: "text", required: false }
+      - { label: "Дата", name: "date", widget: "datetime" }
+      - { label: "Адрес страницы", name: "permalink", widget: "string", hint: "Например: /articles/moia-statya/" }
+      - { label: "Текст статьи", name: "body", widget: "markdown" }

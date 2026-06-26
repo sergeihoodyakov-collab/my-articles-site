@@ -1,0 +1,13 @@
+---
+layout: base.njk
+---
+
+<article class="article">
+  <h1>{{ title }}</h1>
+  <p class="article-meta">{{ date | readableDate }}</p>
+  {% if description %}
+    <p class="article-lead">{{ description }}</p>
+  {% endif %}
+
+  {{ content | safe }}
+</article>

@@ -5,16 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ title or site.title }}</title>
     <meta name="description" content="{{ description or site.description }}">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="{{ '/css/style.css' | url }}">
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   </head>
   <body>
     <header class="site-header">
-      <a class="brand" href="/">{{ site.title }}</a>
+      <a class="brand" href="{{ '/' | url }}">{{ site.title }}</a>
       <nav class="nav" aria-label="Основная навигация">
-        <a href="/">Главная</a>
-        <a href="/articles/">Статьи</a>
-        <a href="/admin/">Добавить статью</a>
+        <a href="{{ '/' | url }}">Главная</a>
+        <a href="{{ '/articles/' | url }}">Статьи</a>
+        <a href="{{ '/admin/' | url }}">Добавить статью</a>
       </nav>
     </header>
 

@@ -10,8 +10,8 @@ description: Личный сайт для публикации статей.
     <h1>{{ site.title }}</h1>
     <p>{{ site.description }}</p>
     <div class="hero-actions">
-      <a class="button" href="/articles/">Читать статьи</a>
-      <a class="button button-secondary" href="/admin/">Добавить статью</a>
+      <a class="button" href="{{ '/articles/' | url }}">Читать статьи</a>
+      <a class="button button-secondary" href="{{ '/admin/' | url }}">Добавить статью</a>
     </div>
   </div>
 </section>
@@ -19,14 +19,14 @@ description: Личный сайт для публикации статей.
 <section class="section">
   <div class="section-head">
     <h2>Свежие статьи</h2>
-    <a href="/articles/">Все статьи</a>
+    <a href="{{ '/articles/' | url }}">Все статьи</a>
   </div>
 
   <div class="post-list">
     {% for post in collections.posts | limit(3) %}
       <article class="post-card">
         <time datetime="{{ post.date }}">{{ post.date | readableDate }}</time>
-        <h3><a href="{{ post.url }}">{{ post.data.title }}</a></h3>
+        <h3><a href="{{ post.url | url }}">{{ post.data.title }}</a></h3>
         {% if post.data.description %}
           <p>{{ post.data.description }}</p>
         {% endif %}

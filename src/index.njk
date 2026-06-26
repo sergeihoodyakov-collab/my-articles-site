@@ -24,14 +24,15 @@ description: Личный сайт для публикации статей.
 
   <div class="post-list">
     {% for post in collections.posts %}
-  {% if loop.index <= 3 %}
-      <article class="post-card">
-        <time datetime="{{ post.date }}">{{ post.date | readableDate }}</time>
-        <h3><a href="{{ post.url | url }}">{{ post.data.title }}</a></h3>
-        {% if post.data.description %}
-          <p>{{ post.data.description }}</p>
-        {% endif %}
-      </article>
-    {% endif %}
+      {% if loop.index <= 3 %}
+        <article class="post-card">
+          <time datetime="{{ post.date }}">{{ post.date | readableDate }}</time>
+          <h3><a href="{{ post.url | url }}">{{ post.data.title }}</a></h3>
+          {% if post.data.description %}
+            <p>{{ post.data.description }}</p>
+          {% endif %}
+        </article>
+      {% endif %}
+    {% endfor %}
   </div>
 </section>

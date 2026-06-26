@@ -23,7 +23,8 @@ description: Личный сайт для публикации статей.
   </div>
 
   <div class="post-list">
-    {% for post in collections.posts | limit(3) %}
+    {% for post in collections.posts %}
+  {% if loop.index <= 3 %}
       <article class="post-card">
         <time datetime="{{ post.date }}">{{ post.date | readableDate }}</time>
         <h3><a href="{{ post.url | url }}">{{ post.data.title }}</a></h3>
@@ -31,6 +32,6 @@ description: Личный сайт для публикации статей.
           <p>{{ post.data.description }}</p>
         {% endif %}
       </article>
-    {% endfor %}
+    {% endif %}
   </div>
 </section>
